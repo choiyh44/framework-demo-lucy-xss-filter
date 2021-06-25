@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example</title>
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+        
+        <div th:if="${text1} != null">
+        	입력값1:  <span th:text="${text1}">입력값1</span><br/>
+        </div>
+        <div th:if="${text2} != null">
+        	입력값2:  <span th:text="${text2}">입력값2</span><br/>
+        </div>
+        <div th:if="${noXss_text3} != null">
+        	입력값2:  <span th:text="${noXss_text3}">입력값3</span><br/>
+        </div>
+        <br/>
+        <br/>
+
+		<div>
+			<form name="form1" method="POST" action="/sample/form2">
+				<input type="text" name="text1"/><br/>
+				<input type="text" name="text2"/><br/>
+				<input type="text" name="noXss_text3"/><br/>
+				<input type="submit" value="확인"/><br/>
+			</form>
+		</div>
+    </body>
+</html>
