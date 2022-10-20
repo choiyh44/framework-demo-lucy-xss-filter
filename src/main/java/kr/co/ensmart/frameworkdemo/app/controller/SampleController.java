@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.ensmart.frameworkdemo.app.dto.Sample;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -41,5 +42,17 @@ public class SampleController {
 		log.info("text1: {}, text2: {}, noXss_text3: {}", text1, text2, noXss_text3);
 		return "sampleForm2";
 	}
+
+    @GetMapping("/form3")
+    public String viewSampleForm3(Sample sample, Model model) {
+        String text1 = sample.getText1();
+        String text2 = sample.getText2();
+        String noXss_text3 = sample.getNoXssText3();
+        model.addAttribute("text1", text1);
+        model.addAttribute("text2", text2);
+        model.addAttribute("noXss_text3", noXss_text3);
+        log.info("text1: {}, text2: {}, noXss_text3: {}", text1, text2, noXss_text3);
+        return "sampleForm";
+    }
 
 }
